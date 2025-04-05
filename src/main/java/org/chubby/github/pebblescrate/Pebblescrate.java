@@ -21,6 +21,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.chubby.github.pebblescrate.client.CrateNameDisplayHandler;
 import org.chubby.github.pebblescrate.client.particles.CrateParticles;
 import org.chubby.github.pebblescrate.client.screens.PrizeDisplayScreenHandlerFactory;
 import org.chubby.github.pebblescrate.common.lootcrates.CrateConfigManager;
@@ -51,6 +52,7 @@ public class Pebblescrate {
         // Register Forge event listeners
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(new TickHandler());
+        MinecraftForge.EVENT_BUS.register(CrateNameDisplayHandler.class);
         MinecraftForge.EVENT_BUS.addListener(this::registerCommands);
     }
 

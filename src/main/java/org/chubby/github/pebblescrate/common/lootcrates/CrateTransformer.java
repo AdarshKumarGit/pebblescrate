@@ -3,10 +3,7 @@ package org.chubby.github.pebblescrate.common.lootcrates;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
-import net.minecraft.nbt.Tag;
-import net.minecraft.nbt.TagParser;
+import net.minecraft.nbt.*;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -58,44 +55,65 @@ public class CrateTransformer {
     }
 
     public void giveKey(int amount, Player admin) {
-        if (crateConfig == null || crateConfig.crateKey() == null) return;
+        if (crateConfig == null || crateConfig.crateKey() == null) {
+            player.sendSystemMessage(Component.literal("Error: Invalid crate configuration for " + crateName).withStyle(ChatFormatting.RED));
+            return;
+        }
 
-        ResourceLocation materialIdentifier = ResourceLocation.parse(crateConfig.crateKey().material());
-        ItemStack crateKeyItemStack = new ItemStack(Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(materialIdentifier)), amount);
+        try {
+            // Get the item from the material string
+            ResourceLocation materialIdentifier = ResourceLocation.parse(crateConfig.crateKey().material());
+            ItemStack crateKeyItemStack = new ItemStack(Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(materialIdentifier)), amount);
 
-        if (!crateKeyItemStack.isEmpty()) {
-            if (player instanceof ServerPlayer serverPlayer) {
-                Component parsedName = new ParseableMessage(crateConfig.crateKey().name(), serverPlayer, "placeholder")
-                        .returnMessageAsStyledText();
-                crateKeyItemStack.setHoverName(parsedName);
+            if (crateKeyItemStack.isEmpty()) {
+                player.sendSystemMessage(Component.literal("Error: Invalid key item for " + crateName).withStyle(ChatFormatting.RED));
+                return;
             }
 
-            if (crateConfig.crateKey().nbt() != null) {
-                try{
+            // Set the key name
+            if (player instanceof ServerPlayer serverPlayer) {
+                String keyName = crateConfig.crateKey().name();
+                crateKeyItemStack.setHoverName(Component.literal(keyName).withStyle(ChatFormatting.GOLD));
+            }
+
+            // Set the NBT data - properly handling exceptions
+            if (crateConfig.crateKey().nbt() != null && !crateConfig.crateKey().nbt().isEmpty()) {
+                try {
                     CompoundTag nbt = TagParser.parseTag(crateConfig.crateKey().nbt());
                     crateKeyItemStack.setTag(nbt);
-                }
-                catch (CommandSyntaxException e){
-
+                } catch (CommandSyntaxException e) {
+                    player.sendSystemMessage(Component.literal("Warning: Invalid NBT data for key").withStyle(ChatFormatting.YELLOW));
                 }
             }
 
+            // IMPORTANT: This is the critical part that needs to match what Pebblescrate.java checks for
             CompoundTag nbt = crateKeyItemStack.getOrCreateTag();
             nbt.putString("CrateName", crateConfig.crateName());
 
-            // Set the lore
-            List<Component> parsedCrateKeyLore = crateConfig.crateKey().lore().stream()
-                    .map(line -> new ParseableMessage(line, (ServerPlayer) player, "placeholder").returnMessageAsStyledText())
-                    .toList();
-            setLore(crateKeyItemStack, parsedCrateKeyLore);
+            // Set the lore using the correct method
+            if (crateConfig.crateKey().lore() != null && !crateConfig.crateKey().lore().isEmpty()) {
+                CompoundTag display = crateKeyItemStack.getOrCreateTagElement("display");
+                ListTag loreTag = new ListTag();
 
+                for (String line : crateConfig.crateKey().lore()) {
+                    Component textComponent = Component.literal(line).withStyle(ChatFormatting.GRAY);
+                    loreTag.add(StringTag.valueOf(Component.Serializer.toJson(textComponent)));
+                }
+
+                display.put("Lore", loreTag);
+            }
+
+            // Add to player inventory
             player.getInventory().add(crateKeyItemStack);
 
+            // Success message
             if (player instanceof ServerPlayer serverPlayer) {
-                String message = "You received " + amount + " " + crateConfig.crateKey().name() +
-                        " for " + crateConfig.crateName() + "!";
-                new ParseableMessage(message, serverPlayer, "placeholder").send();
+                String message = "You received " + amount + " " + crateConfig.crateKey().name() + " for " + crateConfig.crateName() + "!";
+                serverPlayer.sendSystemMessage(Component.literal(message).withStyle(ChatFormatting.GREEN));
             }
+        } catch (Exception e) {
+            player.sendSystemMessage(Component.literal("Error creating crate key: " + e.getMessage()).withStyle(ChatFormatting.RED));
+            e.printStackTrace();
         }
     }
 

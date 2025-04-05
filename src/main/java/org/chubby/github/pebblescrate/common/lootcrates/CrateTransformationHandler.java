@@ -8,7 +8,9 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.AbstractChestBlock;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ChestBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -45,11 +47,11 @@ public class CrateTransformationHandler {
 
         // Check if the clicked block is a chest or ender chest
         BlockState clickedBlockState = world.getBlockState(clickedPos);
-        if (clickedBlockState.getBlock() != Blocks.CHEST &&
-                clickedBlockState.getBlock() != Blocks.ENDER_CHEST) {
+        if (!(clickedBlockState.getBlock() instanceof AbstractChestBlock<?>)) {
             player.sendSystemMessage(Component.literal("You can only transform chests or ender chests!"));
             return;
         }
+
 
         // Save the crate data
         CrateDataManager crateDataManager = new CrateDataManager();
