@@ -8,6 +8,7 @@
   "minecraft:adventure/adventuring_time": {
     "criteria": {
       "minecraft:stony_shore": "2025-03-16 12:39:52 +0530",
+      "minecraft:ocean": "2025-04-05 22:21:23 +0530",
       "minecraft:old_growth_birch_forest": "2025-03-16 12:39:47 +0530"
     },
     "done": false

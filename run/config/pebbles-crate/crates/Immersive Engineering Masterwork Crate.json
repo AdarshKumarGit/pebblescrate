@@ -1,0 +1,133 @@
+{
+  "crateName": "Immersive Engineering Masterwork Crate",
+  "screenName": "&6Immersive Engineering Masterwork Crate",
+  "crateKey": {
+    "material": "immersiveengineering:wirecoil_structure_steel",
+    "name": "&eIndustrial Blueprint Key",
+    "lore": [
+      "&7Unlocks the secrets of advanced Immersive Engineering"
+    ]
+  },
+  "prize": [
+    {
+      "material": "immersiveengineering:blastfurnace_advanced",
+      "name": "&bAdvanced Blast Furnace",
+      "amount": 1,
+      "commands": [
+        "give {player_name} immersiveengineering:blastfurnace_advanced 1"
+      ],
+      "lore": [
+        "&7High-efficiency smelting for advanced alloys",
+        "&dChance: 7%"
+      ],
+      "broadcast": "&e{player_name} &7has forged ahead with an &bAdvanced Blast Furnace &7from the &6Immersive Engineering Masterwork Crate!",
+      "messageToOpener": "&a[Crates] &bYou received an &bAdvanced Blast Furnace&b!",
+      "chance": 7
+    },
+    {
+      "material": "immersiveengineering:excavator",
+      "name": "&6Excavator",
+      "amount": 1,
+      "commands": [
+        "give {player_name} immersiveengineering:excavator 1"
+      ],
+      "lore": [
+        "&7Automated ore extraction on a massive scale",
+        "&dChance: 8%"
+      ],
+      "broadcast": "&e{player_name} &7dug deep and found an &6Excavator &7from the &6Immersive Engineering Masterwork Crate!",
+      "messageToOpener": "&a[Crates] &bYou received an &6Excavator&b!",
+      "chance": 8
+    },
+    {
+      "material": "immersiveengineering:generator_diesel",
+      "name": "&dDiesel Generator",
+      "amount": 1,
+      "commands": [
+        "give {player_name} immersiveengineering:generator_diesel 1"
+      ],
+      "lore": [
+        "&7Reliable power generation using diesel fuel",
+        "&dChance: 10%"
+      ],
+      "broadcast": "&e{player_name} &7powered up with a &dDiesel Generator &7from the &6Immersive Engineering Masterwork Crate!",
+      "messageToOpener": "&a[Crates] &bYou received a &dDiesel Generator&b!",
+      "chance": 10
+    },
+    {
+      "material": "immersiveengineering:arcfurnace",
+      "name": "&9Arc Furnace",
+      "amount": 1,
+      "commands": [
+        "give {player_name} immersiveengineering:arcfurnace 1"
+      ],
+      "lore": [
+        "&7Advanced smelting and alloy creation with electricity.",
+        "&dChance: 9%"
+      ],
+      "broadcast": "&e{player_name} &7melted down materials with an &9Arc Furnace &7from the &6Immersive Engineering Masterwork Crate!",
+      "messageToOpener": "&a[Crates] &bYou received an &9Arc Furnace&b!",
+      "chance": 9
+    },
+    {
+      "material": "immersiveengineering:refinery",
+      "name": "&aRefinery",
+      "amount": 1,
+      "commands": [
+        "give {player_name} immersiveengineering:refinery 1"
+      ],
+      "lore": [
+        "&7Processes crude oil into valuable fuels and resources",
+        "&dChance: 12%"
+      ],
+      "broadcast": "&e{player_name} &7refined raw materials with a &aRefinery &7from the &6Immersive Engineering Masterwork Crate!",
+      "messageToOpener": "&a[Crates] &bYou received a &aRefinery&b!",
+      "chance": 13
+    },
+    {
+      "material": "immersiveengineering:silo",
+      "name": "&cSilo",
+      "amount": 1,
+      "commands": [
+        "give {player_name} immersiveengineering:silo 1"
+      ],
+      "lore": [
+        "&7Large-capacity storage for bulk items and fluids",
+        "&dChance: 15%"
+      ],
+      "broadcast": "&e{player_name} &7stored bulk materials with a &cSilo &7from the &6Immersive Engineering Masterwork Crate!",
+      "messageToOpener": "&a[Crates] &bYou received a &cSilo&b!",
+      "chance": 15
+    },
+    {
+      "material": "immersiveengineering:lightning_rod",
+      "name": "&eLightning Rod",
+      "amount": 1,
+      "commands": [
+        "give {player_name} immersiveengineering:lightning_rod 1"
+      ],
+      "lore": [
+        "&7Generates power from lightning strikes",
+        "&dChance: 13%"
+      ],
+      "broadcast": "&e{player_name} &7harnessed the power of storms with a &eLightning Rod &7from the &6Immersive Engineering Masterwork Crate!",
+      "messageToOpener": "&a[Crates] &bYou received a &eLightning Rod&b!",
+      "chance": 13
+    },
+    {
+      "material": "immersiveengineering:workbench_heavy",
+      "name": "&2Heavy Engineering Workbench",
+      "amount": 1,
+      "commands": [
+        "give {player_name} immersiveengineering:workbench_heavy 1"
+      ],
+      "lore": [
+        "&7Craft complex Immersive Engineering components",
+        "&dChance: 11%"
+      ],
+      "broadcast": "&e{player_name} &7constructed advanced machines with a &2Heavy Engineering Workbench &7from the &6Immersive Engineering Masterwork Crate!",
+      "messageToOpener": "&a[Crates] &bYou received a &2Heavy Engineering Workbench&b!",
+      "chance": 11
+    }
+  ]
+}

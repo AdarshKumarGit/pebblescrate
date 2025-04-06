@@ -1,0 +1,148 @@
+{
+  "crateName": "Mekanism Master Engineer Crate",
+  "screenName": "&cMekanism Master Engineer Crate",
+  "crateKey": {
+    "material": "mekanism:alloy.atomic",
+    "name": "&4Atomic Mastery Core",
+    "lore": [
+      "&7Unlocks the pinnacle of Mekanism's power and technology"
+    ]
+  },
+  "prize": [
+    {
+      "material": "mekanism:ultimate_chemical_tank",
+      "name": "&bUltimate Chemical Tank",
+      "amount": 1,
+      "commands": [
+        "give {player_name} mekanism:ultimate_chemical_tank 1"
+      ],
+      "lore": [
+        "&7Store massive amounts of any gas, liquid, or slurry",
+        "&dChance: 7%"
+      ],
+      "broadcast": "&e{player_name} &7has contained ultimate power with an &bUltimate Chemical Tank &7from the &cMekanism Master Engineer Crate!",
+      "messageToOpener": "&a[Crates] &bYou received an &bUltimate Chemical Tank&b!",
+      "chance": 7
+    },
+    {
+      "material": "mekanismgenerators:industrial_turbine",
+      "name": "&6Industrial Turbine",
+      "amount": 1,
+      "commands": [
+        "give {player_name} mekanismgenerators:industrial_turbine 1"
+      ],
+      "lore": [
+        "&7A powerhouse for generating massive energy",
+        "&dChance: 8%"
+      ],
+      "broadcast": "&e{player_name} &7generated immense power with an &6Industrial Turbine &7from the &cMekanism Master Engineer Crate!",
+      "messageToOpener": "&a[Crates] &bYou received an &6Industrial Turbine&b!",
+      "chance": 8
+    },
+    {
+      "material": "mekanism:quantum_entangloporter",
+      "name": "&dQuantum Entangloporter",
+      "amount": 1,
+      "commands": [
+        "give {player_name} mekanism:quantum_entangloporter 1"
+      ],
+      "lore": [
+        "&7Instantly transfer items, fluids, and gases across dimensions",
+        "&dChance: 9%"
+      ],
+      "broadcast": "&e{player_name} &7defied space and time with a &dQuantum Entangloporter &7from the &cMekanism Master Engineer Crate!",
+      "messageToOpener": "&a[Crates] &bYou received a &dQuantum Entangloporter&b!",
+      "chance": 9
+    },
+    {
+      "material": "mekanismgenerators:fusion_reactor_controller",
+      "name": "&aFusion Reactor Controller",
+      "amount": 1,
+      "commands": [
+        "give {player_name} mekanismgenerators:fusion_reactor_controller 1"
+      ],
+      "lore": [
+        "&7The heart of a powerful fusion energy source",
+        "&dChance: 6%"
+      ],
+      "broadcast": "&e{player_name} &7harnessed the power of the stars with a &aFusion Reactor Controller &7from the &cMekanism Master Engineer Crate!",
+      "messageToOpener": "&a[Crates] &bYou received a &aFusion Reactor Controller&b!",
+      "chance": 6
+    },
+    {
+      "material": "mekanism:ultimate_universal_cable",
+      "name": "&9Ultimate Universal Cable",
+      "amount": 8,
+      "commands": [
+        "give {player_name} mekanism:ultimate_universal_cable 8"
+      ],
+      "lore": [
+        "&7Transmit any type of energy without loss",
+        "&dChance: 10%"
+      ],
+      "broadcast": "&e{player_name} &7connected ultimate power with &9Ultimate Universal Cables &7from the &cMekanism Master Engineer Crate!",
+      "messageToOpener": "&a[Crates] &bYou received 8 &9Ultimate Universal Cables&b!",
+      "chance": 10
+    },
+    {
+      "material": "mekanism:ultimate_factory",
+      "name": "&5Ultimate Factory",
+      "amount": 1,
+      "commands": [
+        "give {player_name} mekanism:ultimate_factory 1"
+      ],
+      "lore": [
+        "&7Process materials at incredible speeds",
+        "&dChance: 8%"
+      ],
+      "broadcast": "&e{player_name} &7built the ultimate production line with an &5Ultimate Factory &7from the &cMekanism Master Engineer Crate!",
+      "messageToOpener": "&a[Crates] &bYou received an &5Ultimate Factory&b!",
+      "chance": 8
+    },
+    {
+      "material": "mekanism:ultimate_induction_provider",
+      "name": "&cUltimate Induction Provider",
+      "amount": 2,
+      "commands": [
+        "give {player_name} mekanism:ultimate_induction_provider 2"
+      ],
+      "lore": [
+        "&7Wirelessly transfer and receive massive amounts of energy",
+        "&dChance: 12%"
+      ],
+      "broadcast": "&e{player_name} &7charged up with &cUltimate Induction Providers &7from the &cMekanism Master Engineer Crate!",
+      "messageToOpener": "&a[Crates] &bYou received 2 &cUltimate Induction Providers&b!",
+      "chance": 12
+    },
+    {
+      "material": "mekanism:advanced_electrolytic_separator",
+      "name": "&2Advanced Electrolytic Separator",
+      "amount": 1,
+      "commands": [
+        "give {player_name} mekanism:advanced_electrolytic_separator 1"
+      ],
+      "lore": [
+        "&7Efficiently separate compounds into their constituent elements",
+        "&dChance: 15%"
+      ],
+      "broadcast": "&e{player_name} &7broke down the elements with an &2Advanced Electrolytic Separator &7from the &cMekanism Master Engineer Crate!",
+      "messageToOpener": "&a[Crates] &bYou received an &2Advanced Electrolytic Separator&b!",
+      "chance": 15
+    },
+    {
+      "material": "mekanism:ultimate_pressurized_reaction_chamber",
+      "name": "&eUltimate Pressurized Reaction Chamber",
+      "amount": 1,
+      "commands": [
+        "give {player_name} mekanism:ultimate_pressurized_reaction_chamber 1"
+      ],
+      "lore": [
+        "&7Perform advanced chemical reactions under extreme conditions",
+        "&dChance: 13%"
+      ],
+      "broadcast": "&e{player_name} &7engineered complex reactions with an &eUltimate Pressurized Reaction Chamber &7from the &cMekanism Master Engineer Crate!",
+      "messageToOpener": "&a[Crates] &bYou received an &eUltimate Pressurized Reaction Chamber&b!",
+      "chance": 13
+    }
+  ]
+}

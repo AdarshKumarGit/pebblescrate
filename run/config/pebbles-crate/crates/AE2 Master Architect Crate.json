@@ -1,0 +1,134 @@
+{
+  "crateName": "AE2 Master Architect Crate",
+  "screenName": "&5AE2 Master Architect Crate",
+  "crateKey": {
+    "material": "appliedenergistics2:quantum_entangled_singularity",
+    "name": "&dQuantum Core Key",
+    "lore": [
+      "&7Unlocks the potential of advanced AE2 systems"
+    ]
+  },
+  "prize": [
+    {
+      "material": "appliedenergistics2:quantum_ring",
+      "name": "&bQuantum Ring",
+      "amount": 4,
+      "commands": [
+        "give {player_name} appliedenergistics2:quantum_ring 4"
+      ],
+      "lore": [
+        "&7Essential for creating Quantum Networks",
+        "&dChance: 10%"
+      ],
+      "broadcast": "&e{player_name} &7has bridged dimensions with &bQuantum Rings &7from the &5AE2 Master Architect Crate!",
+      "messageToOpener": "&a[Crates] &bYou received 4 &bQuantum Rings&b!",
+      "chance": 9
+    },
+    {
+      "material": "appliedenergistics2:quantum_entangled_singularity",
+      "name": "&6Quantum Entanglement Singularity",
+      "amount": 2,
+      "commands": [
+        "give {player_name} appliedenergistics2:quantum_entangled_singularity 2"
+      ],
+      "lore": [
+        "&7The core component for linking Quantum Networks",
+        "&dChance: 8%"
+      ],
+      "broadcast": "&e{player_name} &7found the key to interdimensional storage: &6Quantum Entanglement Singularities &7from the &5AE2 Master Architect Crate!",
+      "messageToOpener": "&a[Crates] &bYou received 2 &6Quantum Entanglement Singularities&b!",
+      "chance": 8
+    },
+    {
+      "material": "ae2wtlib:wireless_crafting_terminal",
+      "name": "&dWireless Crafting Terminal",
+      "amount": 1,
+      "commands": [
+        "give {player_name} ae2wtlib:wireless_crafting_terminal 1"
+      ],
+      "lore": [
+        "&7Access your AE2 system and crafting from anywhere!",
+        "&7Requires a bound security card",
+        "&dChance: 12%"
+      ],
+      "broadcast": "&e{player_name} &7unlocked boundless crafting with a &dWireless Crafting Terminal &7from the &5AE2 Master Architect Crate!",
+      "messageToOpener": "&a[Crates] &bYou received a &dWireless Crafting Terminal&b!",
+      "chance": 13
+    },
+    {
+      "material": "appliedenergistics2:advanced_inscriber",
+      "name": "&aAdvanced Inscriber",
+      "amount": 1,
+      "commands": [
+        "give {player_name} appliedenergistics2:advanced_inscriber 1"
+      ],
+      "lore": [
+        "&7Used for creating complex integrated circuits",
+        "&dChance: 15%"
+      ],
+      "broadcast": "&e{player_name} &7gained precision fabrication with an &aAdvanced Inscriber &7from the &5AE2 Master Architect Crate!",
+      "messageToOpener": "&a[Crates] &bYou received an &aAdvanced Inscriber&b!",
+      "chance": 15
+    },
+    {
+      "material": "appliedenergistics2:spatial_storage_cell_16m",
+      "name": "&9Spatial Storage Cell (16M)",
+      "amount": 1,
+      "commands": [
+        "give {player_name} appliedenergistics2:spatial_storage_cell_16m 2"
+      ],
+      "lore": [
+        "&7Store massive amounts of items in a single cell",
+        "&dChance: 14%"
+      ],
+      "broadcast": "&e{player_name} &7expanded their horizons with &9Spatial Storage Cells &7from the &5AE2 Master Architect Crate!",
+      "messageToOpener": "&a[Crates] &bYou received 2 &9Spatial Storage Cells (16M)&b!",
+      "chance": 14
+    },
+    {
+      "material": "appliedenergistics2:singularity",
+      "name": "&cSingularity",
+      "amount": 3,
+      "commands": [
+        "give {player_name} appliedenergistics2:singularity 4"
+      ],
+      "lore": [
+        "&7Very dense item used in advanced crafting",
+        "Chance: 9%"
+      ],
+      "broadcast": "&e{player_name} &7condensed ultimate power with &cSingularities&7 from the &5AE2 Master Architect Crate",
+      "messageToOpener": "&a[Crates] You received 4 &cSingularities",
+      "chance": 9
+    },
+    {
+      "material": "appliedenergistics2:molecular_assembler",
+      "name": "&eMolecular Assembler",
+      "amount": 1,
+      "commands": [
+        "give {player_name} appliedenergistics2:molecular_assembler 1"
+      ],
+      "lore": [
+        "&7Required for advanced autocrafting",
+        "Chance: 11%"
+      ],
+      "broadcast": "&e{player_name} &7can now assemble anything with a &eMolecular Assembler&7 from the &5AE2 Master Architect Crate",
+      "messageToOpener": "&a[Crates] You received a &eMolecular Assembler",
+      "chance": 11
+    },
+    {
+      "material": "appliedenergistics2:spatial_pylon",
+      "name": "&4Spatial Pylon",
+      "amount": 4,
+      "commands": [
+        "give {player_name} appliedenergistics2:spatial_pylon 4"
+      ],
+      "lore": [
+        "&7Used to create spatial storage",
+        "Chance: 13%"
+      ],
+      "broadcast": "&e{player_name} &7can bend space itself with &7Spatial Pylons&7 from the &5AE2 Master Architect Crate",
+      "messageToOpener": "&a[Crates] You received 4 &4Spatial Pylons",
+      "chance": 15
+    }
+  ]
+}

@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -11,6 +12,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.client.event.RegisterClientReloadListenersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.TickEvent;
@@ -21,6 +23,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.ForgeRegistries;
+import org.apache.commons.logging.Log;
 import org.chubby.github.pebblescrate.client.CrateNameDisplayHandler;
 import org.chubby.github.pebblescrate.client.particles.CrateParticles;
 import org.chubby.github.pebblescrate.client.screens.PrizeDisplayScreenHandlerFactory;
@@ -39,7 +43,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @Mod(Pebblescrate.MOD_ID)
 public class Pebblescrate {
     public static final String MOD_ID = "pebbles_crate";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
     private static final Set<BlockPos> cratesInUse = Collections.synchronizedSet(new HashSet<>());
     private static final Map<UUID, Long> playerCooldowns = new ConcurrentHashMap<>();
     public static final Map<Long, List<Task>> tasks = new ConcurrentHashMap<>();
@@ -54,11 +58,17 @@ public class Pebblescrate {
         MinecraftForge.EVENT_BUS.register(new TickHandler());
         MinecraftForge.EVENT_BUS.register(CrateNameDisplayHandler.class);
         MinecraftForge.EVENT_BUS.addListener(this::registerCommands);
+        MinecraftForge.EVENT_BUS.addListener(this::registerReload);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         LOGGER.info("Initializing Pebbles Loot Crates for Forge 1.20.1!");
         new CrateConfigManager().createCratesFolder();
+
+    }
+
+    private void registerReload(RegisterClientReloadListenersEvent event){
+        event.registerReloadListener(CrateDataManager.getInstance());
     }
 
     private void registerCommands(final RegisterCommandsEvent event)
@@ -87,7 +97,7 @@ public class Pebblescrate {
 
                 if (crateConfig != null) {
                     // Create key item
-                    ItemStack crateKey = new ItemStack(Items.GOLD_NUGGET);
+                    ItemStack crateKey = new ItemStack(Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(ResourceLocation.tryParse(crateConfig.crateKey().material()))));
                     CompoundTag nbt = crateKey.getOrCreateTag();
                     nbt.putString("CrateName", crateConfig.crateName());
 

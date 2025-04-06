@@ -1,0 +1,118 @@
+{
+  "crateName": "Create Mod Advanced Gadgets Crate",
+  "screenName": "&dCreate Mod Advanced Gadgets Crate",
+  "crateKey": {
+    "material": "minecraft:amethyst_shard",
+    "name": "&5Innovation Shard",
+    "lore": [
+      "&7Unlocks the secrets of cutting-edge Create technology"
+    ]
+  },
+  "prize": [
+    {
+      "material": "create:modular_controller",
+      "name": "&bModular Controller",
+      "amount": 1,
+      "commands": [
+        "give {player_name} create:modular_controller 1"
+      ],
+      "lore": [
+        "&7Programmable control for complex automation",
+        "&dChance: 8%"
+      ],
+      "broadcast": "&e{player_name} &7has mastered control and found a &bModular Controller &7in the &dCreate Mod Advanced Gadgets Crate!",
+      "messageToOpener": "&a[Crates] &bYou received a versatile &bModular Controller&b!",
+      "chance": 8
+    },
+    {
+      "material": "create:sequenced_gearshift",
+      "name": "&6Sequenced Gearshift",
+      "amount": 1,
+      "commands": [
+        "give {player_name} create:sequenced_gearshift 1"
+      ],
+      "lore": [
+        "&7Control the order of operations in your machines",
+        "&dChance: 12%"
+      ],
+      "broadcast": "&e{player_name} &7shifted into high gear and got a &6Sequenced Gearshift &7from the &dCreate Mod Advanced Gadgets Crate!",
+      "messageToOpener": "&a[Crates] &bYou received a precise &6Sequenced Gearshift&b!",
+      "chance": 12
+    },
+    {
+      "material": "create:stockpile_switch",
+      "name": "&cStockpile Switch",
+      "amount": 1,
+      "commands": [
+        "give {player_name} create:stockpile_switch 1"
+      ],
+      "lore": [
+        "&7Automate inventory management with precision",
+        "&dChance: 15%"
+      ],
+      "broadcast": "&e{player_name} &7flipped the switch and found a &cStockpile Switch &7in the &dCreate Mod Advanced Gadgets Crate!",
+      "messageToOpener": "&a[Crates] &bYou received a useful &cStockpile Switch&b!",
+      "chance": 15
+    },
+    {
+      "material": "create:pulse_repeater",
+      "name": "&9Pulse Repeater",
+      "amount": 1,
+      "commands": [
+        "give {player_name} create:pulse_repeater 1"
+      ],
+      "lore": [
+        "&7Precisely control the timing of mechanical pulses",
+        "&dChance: 20%"
+      ],
+      "broadcast": "&e{player_name} &7sent a signal and received a &9Pulse Repeater &7from the &dCreate Mod Advanced Gadgets Crate!",
+      "messageToOpener": "&a[Crates] &bYou received a timing-critical &9Pulse Repeater&b!",
+      "chance": 20
+    },
+    {
+      "material": "create:redstone_contact",
+      "name": "&aRedstone Contact",
+      "amount": 1,
+      "commands": [
+        "give {player_name} create:redstone_contact 1"
+      ],
+      "lore": [
+        "&7Bridge the gap between mechanical and redstone systems.",
+        "&dChance: 25%"
+      ],
+      "broadcast": "&e{player_name} &7made contact with a powerful &aRedstone Contact &7from the &dCreate Mod Advanced Gadgets Crate!",
+      "messageToOpener": "&a[Crates] &bYou received an adaptable &aRedstone Contact&b",
+      "chance": 25
+    },
+    {
+      "material": "create:gantry_carriage_controller",
+      "name": "&eGantry Carriage Controller",
+      "amount": 1,
+      "commands": [
+        "give {player_name} create:gantry_carriage 1"
+      ],
+      "lore": [
+        "&7Orchestrate the movement of large structures",
+        "&dChance: 10%&dChance: 10%"
+      ],
+      "broadcast": "&e{player_name} &7took control and found a &eGantry Carriage Controller &7in the &dCreate Mod Advanced Gadgets Crate!",
+      "messageToOpener": "&a[Crates] &bYou received a sophisticated &eGantry Carriage Controller&b!",
+      "chance": 10
+    },
+    {
+      "material": "create:elevator_pulley",
+      "name": "&2Elevator Pulley",
+      "amount": 1,
+      "commands": [
+        "give {player_name} create:elevator_pulley 1"
+      ],
+      "lore": [
+        "&7Build functional elevators for easy vertical travel",
+        "&dChance: 10%"
+      ],
+      "broadcast": "&e{player_name} &7ascended to new heights and found an &2Elevator Pulley &7in the &dCreate Mod Advanced Gadgets Crate!",
+      "messageToOpener": "&a[Crates] &bYou received a vertical-moving &2Elevator Pulley&b!",
+      "chance": 10
+    }
+  ]
+}

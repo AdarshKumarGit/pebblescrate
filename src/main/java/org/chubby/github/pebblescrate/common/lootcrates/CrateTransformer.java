@@ -71,26 +71,27 @@ public class CrateTransformer {
             }
 
             // Set the key name
-            if (player instanceof ServerPlayer serverPlayer) {
-                String keyName = crateConfig.crateKey().name();
-                crateKeyItemStack.setHoverName(Component.literal(keyName).withStyle(ChatFormatting.GOLD));
-            }
+            String keyName = crateConfig.crateKey().name();
+            crateKeyItemStack.setHoverName(Component.literal(keyName).withStyle(ChatFormatting.GOLD));
 
-            // Set the NBT data - properly handling exceptions
+            // Create NBT data - SIMPLIFIED APPROACH
+            CompoundTag nbt = crateKeyItemStack.getOrCreateTag();
+            nbt.putString("CrateName", crateConfig.crateName());
+
+            // Apply custom NBT if provided
             if (crateConfig.crateKey().nbt() != null && !crateConfig.crateKey().nbt().isEmpty()) {
                 try {
-                    CompoundTag nbt = TagParser.parseTag(crateConfig.crateKey().nbt());
-                    crateKeyItemStack.setTag(nbt);
+                    CompoundTag customNBT = TagParser.parseTag(crateConfig.crateKey().nbt());
+                    // Merge the custom NBT with our existing NBT
+                    for (String key : customNBT.getAllKeys()) {
+                        nbt.put(key, Objects.requireNonNull(customNBT.get(key)));
+                    }
                 } catch (CommandSyntaxException e) {
                     player.sendSystemMessage(Component.literal("Warning: Invalid NBT data for key").withStyle(ChatFormatting.YELLOW));
                 }
             }
 
-            // IMPORTANT: This is the critical part that needs to match what Pebblescrate.java checks for
-            CompoundTag nbt = crateKeyItemStack.getOrCreateTag();
-            nbt.putString("CrateName", crateConfig.crateName());
-
-            // Set the lore using the correct method
+            // Set lore using Minecraft's standard format
             if (crateConfig.crateKey().lore() != null && !crateConfig.crateKey().lore().isEmpty()) {
                 CompoundTag display = crateKeyItemStack.getOrCreateTagElement("display");
                 ListTag loreTag = new ListTag();
@@ -107,10 +108,9 @@ public class CrateTransformer {
             player.getInventory().add(crateKeyItemStack);
 
             // Success message
-            if (player instanceof ServerPlayer serverPlayer) {
-                String message = "You received " + amount + " " + crateConfig.crateKey().name() + " for " + crateConfig.crateName() + "!";
-                serverPlayer.sendSystemMessage(Component.literal(message).withStyle(ChatFormatting.GREEN));
-            }
+            String message = "You received " + amount + " " + crateConfig.crateKey().name() + " for " + crateConfig.crateName() + "!";
+            player.sendSystemMessage(Component.literal(message).withStyle(ChatFormatting.GREEN));
+
         } catch (Exception e) {
             player.sendSystemMessage(Component.literal("Error creating crate key: " + e.getMessage()).withStyle(ChatFormatting.RED));
             e.printStackTrace();
@@ -118,12 +118,15 @@ public class CrateTransformer {
     }
 
     private void setLore(ItemStack itemStack, List<Component> lore) {
-        ListTag listTag = new ListTag();
-        for(int i=0;i<lore.size();i++){
-            CompoundTag tag = new CompoundTag();
-            tag.putString("LoreTag",lore.get(i).getString());
-            listTag.add(i,tag);
+        CompoundTag display = itemStack.getOrCreateTagElement("display");
+        ListTag loreTag = new ListTag();
+
+        for (int i = 0; i < lore.size(); i++) {
+            Component component = lore.get(i);
+            String json = Component.Serializer.toJson(component);
+            loreTag.add(StringTag.valueOf(json));
         }
-        itemStack.getOrCreateTagElement("display").put("Lore", listTag);
+
+        display.put("Lore", loreTag);
     }
 }
