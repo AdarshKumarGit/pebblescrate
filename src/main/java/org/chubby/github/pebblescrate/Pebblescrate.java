@@ -32,6 +32,7 @@ import org.chubby.github.pebblescrate.common.lootcrates.CrateConfigManager;
 import org.chubby.github.pebblescrate.common.lootcrates.CrateDataManager;
 
 import org.chubby.github.pebblescrate.common.lootcrates.CrateEventHandler;
+import org.chubby.github.pebblescrate.common.lootcrates.CrateTransformer;
 import org.chubby.github.pebblescrate.core.commands.CrateCommand;
 import org.chubby.github.pebblescrate.util.Task;
 import org.chubby.github.pebblescrate.util.TickHandler;
@@ -97,15 +98,14 @@ public class Pebblescrate {
 
                 if (crateConfig != null) {
                     // Create key item
-                    ItemStack crateKey = new ItemStack(Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(ResourceLocation.tryParse(crateConfig.crateKey().material()))));
-                    CompoundTag nbt = crateKey.getOrCreateTag();
-                    nbt.putString("CrateName", crateConfig.crateName());
+                    CrateTransformer crateTransformer = new CrateTransformer(crateConfig.crateName(),player);
+                    ItemStack crateKey = crateTransformer.crateKeyItemStack;
 
                     // Check if the player is holding the correct key
                     ItemStack heldItem = player.getMainHandItem();
                     if (heldItem.getItem() == crateKey.getItem() &&
                             heldItem.hasTag() &&
-                            heldItem.getTag().getString("CrateName").equals(crateConfig.crateName())) {
+                            Objects.requireNonNull(heldItem.getTag()).getString("CrateName").equals(crateConfig.crateName())) {
 
                         // Check if crate is in use
                         if (cratesInUse.contains(clickedPos)) {

@@ -24,7 +24,7 @@ public class CrateTransformer {
     private final Player player;
     private final CrateConfigManager.CrateConfig crateConfig;
     private final ItemStack crateItemStack = new ItemStack(Items.PAPER);
-
+    public ItemStack crateKeyItemStack;
     public CrateTransformer(String crateName, Player player) {
         this.crateName = crateName;
         this.player = player;
@@ -63,7 +63,7 @@ public class CrateTransformer {
         try {
             // Get the item from the material string
             ResourceLocation materialIdentifier = ResourceLocation.parse(crateConfig.crateKey().material());
-            ItemStack crateKeyItemStack = new ItemStack(Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(materialIdentifier)), amount);
+            crateKeyItemStack = new ItemStack(Objects.requireNonNull(ForgeRegistries.ITEMS.getValue(materialIdentifier)), amount);
 
             if (crateKeyItemStack.isEmpty()) {
                 player.sendSystemMessage(Component.literal("Error: Invalid key item for " + crateName).withStyle(ChatFormatting.RED));
